@@ -8,5 +8,4 @@ export class DbContext
     {
         this.db = new Database('techstarter.db')
     }
-
 }

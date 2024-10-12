@@ -5,10 +5,8 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse)
 {
     let db_context = new DbContext()
 
-    let query:string = req.query.query+"";
-    let pw:string = req.query.pw+"";
-
-
+    let query:string = req.body.query+"";
+    let pw:string = req.body.pw+"";
 
     if(!pw)
     {
@@ -25,12 +23,6 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse)
     if(!query)
     {
         res.status(200).json({'error':'Where is the SQL Query?'})
-        return
-    }
-
-    if (query.toLowerCase().includes('drop'))
-    {
-        res.status(200).json({'error':'Drop is forbidden!'})
         return
     }
     
