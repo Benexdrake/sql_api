@@ -8,6 +8,8 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse)
     let query:string = req.query.query+"";
     let pw:string = req.query.pw+"";
 
+    
+
     if(!pw)
     {
         res.status(200).json({'error':'You should not pass!!!'})
