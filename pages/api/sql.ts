@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { DbContext } from "@/logic/db_context";
 
-export async function POST(req:NextApiRequest,res:NextApiResponse)
+export default async function handler(req:NextApiRequest,res:NextApiResponse)
 {
     let db_context = new DbContext()
 
