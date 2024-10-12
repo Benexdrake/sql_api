@@ -5,8 +5,8 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse)
 {
     let db_context = new DbContext()
 
-    let query:string = req.body.query;
-    let pw:string = req.body.pw;
+    let query:string = req.query.query+"";
+    let pw:string = req.query.pw+"";
 
     if(!pw)
     {
