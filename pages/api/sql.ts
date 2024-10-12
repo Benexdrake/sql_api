@@ -8,7 +8,7 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse)
     let query:string = req.query.query+"";
     let pw:string = req.query.pw+"";
 
-    
+
 
     if(!pw)
     {
@@ -38,9 +38,10 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse)
         return {'error':'Empty Query'}
     
     db_context.db?.all(query, (err: any, result: any) => {
-            if (result.length > 0)
+            if (result)
                 res.status(200).json({'result': result})
             else if (err)
                 res.status(200).json({'error': err.message})
         });
+    db_context.db?.close()
 }
